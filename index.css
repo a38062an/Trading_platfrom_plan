@@ -30,3 +30,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Make code blocks scrollable on mobile */
+pre {
+  max-width: 100%;
+  overflow-x: auto;
+}

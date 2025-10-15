@@ -21,20 +21,20 @@ export default function SystemArchitecture() {
   );
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900 p-8">
+    <div className="w-full min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900 p-3 sm:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-white mb-3">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-3">
           System Architecture & Data Flow
         </h1>
-        <p className="text-gray-400 mb-8">
+        <p className="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6 lg:mb-8">
           Multi-threaded exchange system with shared order book synchronization
         </p>
 
         {/* Core Problem Statement */}
-        <div className="bg-gradient-to-br from-red-900 to-red-800 rounded-xl p-6 mb-6 border-2 border-red-500">
-          <h2 className="text-2xl font-bold text-red-200 mb-4">The Central Problem: Shared Order Book Contention</h2>
-          <div className="bg-red-900/50 rounded-lg p-4">
-            <div className="text-sm text-white space-y-3">
+        <div className="bg-gradient-to-br from-red-900 to-red-800 rounded-xl p-4 sm:p-6 mb-4 sm:mb-6 border-2 border-red-500">
+          <h2 className="text-xl sm:text-2xl font-bold text-red-200 mb-3 sm:mb-4">The Central Problem: Shared Order Book Contention</h2>
+          <div className="bg-red-900/50 rounded-lg p-3 sm:p-4">
+            <div className="text-xs sm:text-sm text-white space-y-2 sm:space-y-3">
               <div><strong>Core Issue:</strong> Multiple threads need to access the same order book simultaneously</div>
               <div><strong>Writer Thread:</strong> Matching engine needs exclusive access to modify order book (add/cancel/match orders)</div>
               <div><strong>Reader Threads:</strong> Market data publishers, GUI, risk systems need to read current state without blocking the writer</div>
@@ -45,10 +45,10 @@ export default function SystemArchitecture() {
         </div>
 
         {/* Complete Data Flow */}
-        <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-6 mb-6 border-2 border-cyan-500">
-          <h2 className="text-2xl font-bold text-cyan-300 mb-6">Complete Order Processing Flow</h2>
+        <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl p-4 sm:p-6 mb-4 sm:mb-6 border-2 border-cyan-500">
+          <h2 className="text-xl sm:text-2xl font-bold text-cyan-300 mb-4 sm:mb-6">Complete Order Processing Flow</h2>
           
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             {/* Client */}
             <div>
               <FlowBox 
@@ -99,7 +99,7 @@ export default function SystemArchitecture() {
             <div className="bg-red-900/40 border-2 border-red-400 rounded-lg p-4">
               <div className="text-lg font-bold text-red-200 mb-3">Matching Engine (Single Thread, P-Core Pinned)</div>
               
-              <div className="grid grid-cols-2 gap-4 mb-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-3">
                 <div className="bg-red-800/50 rounded p-3">
                   <div className="text-sm font-bold text-red-200 mb-2">Core Components</div>
                   <div className="text-xs text-white space-y-1">
@@ -174,8 +174,8 @@ export default function SystemArchitecture() {
 
             {/* Parallel Readers */}
             <div className="mt-6 bg-blue-900/40 border-2 border-blue-400 rounded-lg p-4">
-              <div className="text-lg font-bold text-blue-200 mb-3">Concurrent Reader Threads (Parallel Path)</div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="text-base sm:text-lg font-bold text-blue-200 mb-3">Concurrent Reader Threads (Parallel Path)</div>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4">
                 <FlowBox 
                   title="Market Data Publishers"
                   items={[
@@ -207,10 +207,10 @@ export default function SystemArchitecture() {
         </div>
 
         {/* Synchronization Strategies */}
-        <div className="bg-gradient-to-br from-amber-900 to-amber-800 rounded-xl p-6 mb-6 border-2 border-amber-500">
-          <h2 className="text-2xl font-bold text-amber-200 mb-4">Synchronization Strategies Compared</h2>
+        <div className="bg-gradient-to-br from-amber-900 to-amber-800 rounded-xl p-4 sm:p-6 mb-4 sm:mb-6 border-2 border-amber-500">
+          <h2 className="text-xl sm:text-2xl font-bold text-amber-200 mb-3 sm:mb-4">Synchronization Strategies Compared</h2>
           
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4">
             <div className="bg-amber-800/50 rounded-lg p-4">
               <h4 className="font-bold text-amber-200 mb-2">Coarse-Grained Locking</h4>
               <div className="text-xs text-white space-y-2">
@@ -259,14 +259,14 @@ export default function SystemArchitecture() {
         </div>
 
         {/* Testing & Metrics */}
-        <div className="bg-gradient-to-br from-green-900 to-green-800 rounded-xl p-6 border-2 border-green-500">
-          <h2 className="text-2xl font-bold text-green-200 mb-4">Testing Framework & Metrics Collection</h2>
+        <div className="bg-gradient-to-br from-green-900 to-green-800 rounded-xl p-4 sm:p-6 border-2 border-green-500">
+          <h2 className="text-xl sm:text-2xl font-bold text-green-200 mb-3 sm:mb-4">Testing Framework & Metrics Collection</h2>
           
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {/* RDTSC Explanation */}
             <div className="bg-green-800/50 rounded-lg p-4">
-              <h3 className="font-bold text-green-200 mb-3">What is RDTSC?</h3>
-              <div className="grid grid-cols-2 gap-4">
+              <h3 className="text-base sm:text-lg font-bold text-green-200 mb-3">What is RDTSC?</h3>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <div className="text-xs font-bold text-green-200 mb-2">Explanation</div>
                   <div className="text-xs text-white space-y-2">
@@ -305,8 +305,8 @@ export default function SystemArchitecture() {
 
             {/* MetricsCollector Integration */}
             <div className="bg-green-800/50 rounded-lg p-4">
-              <h3 className="font-bold text-green-200 mb-3">Where Does MetricsCollector Live?</h3>
-              <div className="grid grid-cols-2 gap-4">
+              <h3 className="text-base sm:text-lg font-bold text-green-200 mb-3">Where Does MetricsCollector Live?</h3>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <div className="text-xs font-bold text-green-200 mb-2">Architecture</div>
                   <div className="text-xs text-white space-y-2">
@@ -348,8 +348,8 @@ public:
             </div>
 
             <div className="bg-green-800/50 rounded-lg p-4">
-              <h3 className="font-bold text-green-200 mb-3">MetricsCollector Implementation</h3>
-              <div className="grid grid-cols-2 gap-4">
+              <h3 className="text-base sm:text-lg font-bold text-green-200 mb-3">MetricsCollector Implementation</h3>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <div className="text-xs font-bold text-green-200 mb-2">Lock-Free Design</div>
                   <pre className="text-xs bg-black/40 p-3 rounded text-green-300 overflow-x-auto">

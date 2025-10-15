@@ -432,20 +432,20 @@ public:
   };
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900 p-8">
+    <div className="w-full min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-gray-900 p-3 sm:p-6 lg:p-8">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-white mb-3">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2 sm:mb-3">
           Benchmarking Plan
         </h1>
-        <p className="text-gray-400 mb-6">
+        <p className="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6">
           Reader/writer synchronization strategies for order book access under contention
         </p>
 
         <Section id="overview" title="Research Question" color="bg-gradient-to-r from-blue-600 to-blue-700 text-white border-blue-500">
           
-          <div className="bg-blue-900/40 border-2 border-blue-400 rounded-lg p-4 mb-4">
-            <div className="text-sm font-bold text-blue-200 mb-3">Core Trade-Off</div>
-            <div className="grid grid-cols-3 gap-3 text-xs text-white">
+          <div className="bg-blue-900/40 border-2 border-blue-400 rounded-lg p-3 sm:p-4 mb-3 sm:mb-4">
+            <div className="text-xs sm:text-sm font-bold text-blue-200 mb-2 sm:mb-3">Core Trade-Off</div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 text-xs text-white">
               <div>
                 <div className="font-semibold mb-1 text-blue-300">Critical Path:</div>
                 <div>P-Core 0: Matching Engine</div>
@@ -489,7 +489,7 @@ public:
 
         <Section id="fixed" title="Fixed Components (Infrastructure)" color="bg-gradient-to-r from-gray-700 to-gray-800 text-white border-gray-600">
           
-          <div className="grid grid-cols-2 gap-3 mb-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-3">
             <Box 
               title="Market Server (3 threads, P-Cores 1-3)"
               items={[
@@ -529,7 +529,7 @@ public:
             codeKey="matching_engine"
           />
 
-          <div className="grid grid-cols-2 gap-3 mt-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 mt-3">
             <Box 
               title="Market Data Publisher (1 thread, P-Core 4)"
               items={[
@@ -591,7 +591,7 @@ public:
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-3 mb-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-3">
             <div className="bg-orange-900/30 border border-orange-500 rounded p-3">
               <div className="font-semibold text-sm mb-2 text-orange-200">Option A: std::map</div>
               <div className="text-xs text-white space-y-1">
@@ -676,7 +676,7 @@ public:
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 mb-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
             <div className="bg-pink-900/30 border border-pink-500 rounded p-3">
               <div className="font-semibold text-sm mb-2 text-pink-200">Option A: Coarse Lock</div>
               <div className="text-xs text-white space-y-1">
@@ -857,7 +857,7 @@ wrapper.getBestBid();
             </div>
           </div>
 
-          <div className="mt-3 grid grid-cols-2 gap-3">
+          <div className="mt-3 grid grid-cols-1 lg:grid-cols-2 gap-3">
             <div className="bg-green-900/30 border border-green-600 rounded-lg p-3">
               <div className="text-xs font-bold mb-2 text-green-200">Order Generator</div>
               <div className="text-xs space-y-1 text-white">
@@ -1001,7 +1001,7 @@ wrapper.getBestBid();
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="bg-cyan-800/50 rounded p-3">
                 <div className="font-semibold text-cyan-200 mb-2">Why Pin Threads?</div>
                 <div className="text-xs text-white space-y-1">
@@ -1047,9 +1047,9 @@ pinThread(engine_thread, 0);  // Lock to P-Core 0 (fastest core)`}</pre>
           </div>
         </div>
 
-        <div className="mt-4 bg-gray-800 rounded-lg p-4 border border-gray-700">
-          <h3 className="text-white font-bold mb-3">Technology Stack</h3>
-          <div className="grid grid-cols-3 gap-3 text-xs">
+        <div className="mt-4 bg-gray-800 rounded-lg p-3 sm:p-4 border border-gray-700">
+          <h3 className="text-base sm:text-lg text-white font-bold mb-3">Technology Stack</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
             <div>
               <div className="font-semibold text-gray-300 mb-2">Core</div>
               <div className="space-y-1 text-gray-400">
